@@ -1,142 +1,74 @@
-\# CSCI 455/555: GenAI for SD - Assignment 1
+---
 
+# CSCI 455/555: GenAI for SD - Assignment 1
 
-
-\## Recommending Code Tokens via N-gram Models
-
-
+## Recommending Code Tokens via N-gram Models
 
 This repository implements an end-to-end NLP pipeline that mines Java repositories, preprocesses method-level code, and trains probabilistic N-gram language models for code completion tasks.
 
-
-
 ---
 
+## Dependencies & Installation
 
+This project requires **Python 3.10+**. The following libraries are used for parsing, repository management, and data handling:
 
-\## Dependencies \& Installation
+* `javalang`: Parsing and tokenizing Java source code.
+* `GitPython`: Automated repository cloning.
+* `pandas`: Managing repository metadata.
 
-
-
-This project requires \*\*Python 3.10+\*\*. The following libraries are used for parsing, repository management, and data handling:
-
-
-
-\* `javalang`: Parsing and tokenizing Java source code.
-
-\* `gitpython`: Automated repository cloning.
-
-\* `pandas`: Managing repository metadata.
-
-
-
-Install dependencies via pip (already implemented in the jupyter notebook):
-
-
+Install the dependencies via pip (this setup is also included within the Jupyter Notebook):
 
 ```bash
-
-pip install javalang gitpython pandas
-
-
+pip install javalang GitPython pandas
 
 ```
 
-
-
 ---
 
+## Execution Guide
 
+The entire pipeline—from data mining to model evaluation—is contained within `N_gram_training.ipynb`.
 
-\## Execution Guide
-
-
-
-The entire pipeline—from data mining to model evaluation—is contained within `N\_gram\_training.ipynb`.
-
-
-
-1\. \*\*Setup\*\*: Run file locally (recommended) and install and import relevant packages.
-
-2\. \*\*Setup\*\*: Ensure ample storage space and a connection to allow the script to clone up to 500 top Java repositories from Github
-
-3\. \*\*Workflow\*\*: Run the notebook cells sequentially to perform the following:
-
-\* \*\*Data Mining\*\*: Fetch, clone, and parse Java repositories.
-
-\* \*\*Preprocessing\*\*: Clean, filter (removing non-ASCII and methods with <10 tokens), and deduplicate.
-
-\* \*\*Vocabulary Building\*\*: Map unseen validation/test tokens to `<UNK>`.
-
-\* \*\*Training\*\*: Train 3-gram, 5-gram, and 7-gram models across , , and  splits.
-
-\* \*\*Evaluation\*\*: Generate predictions and export results.
-
-
-
-
+1. **Setup**: Run the file locally (recommended) to install and import the relevant packages.
+2. **Storage & Network**: Ensure ample storage space and a stable internet connection to allow the script to clone up to 500 top Java repositories from GitHub.
+3. **Workflow**: Run the notebook cells sequentially to perform the following:
+* **Data Mining**: Fetch, clone, and parse Java repositories.
+* **Preprocessing**: Clean, filter (removing non-ASCII characters and methods with <10 tokens), and deduplicate the data.
+* **Vocabulary Building**: Map unseen validation and test tokens to `<UNK>`.
+* **Training**: Train 3-gram, 5-gram, and 7-gram models across the T1, T2, and T3 splits.
+* **Evaluation**: Generate predictions and export the results.
 
 
 
 ---
 
+## Project Structure & Outputs
 
+All `.json` and `.txt` files are stored in `dataset/ngram_dataset/`.
+Cloned GitHub repos are stored in `dataset/java_repos/`.
 
-\## Project Structure \& Outputs
+### Dataset Splits
 
+* `train_T1.txt` / `train_T2.txt` / `train_T3.txt`: Training sets capped at 15k, 25k, and ~35k methods, respectively.
+* `val.txt`: 1,000 methods for validation.
+* `test.txt`: 1,000 methods (self-created test set).
+* `given_test.txt`: 1,000 methods (instructor-provided test set).
 
+### Evaluation & Metadata
 
-All .json and .txt files are stored in `dataset/ngram\_dataset/`.
-
-Cloned Github repos are stored in `dataset/java\_repos`
-
-
-
-\### Dataset Splits
-
-
-
-\* `train\_T1.txt` / `train\_T2.txt` / `train\_T3.txt`: Training sets capped at 15k, 25k, and ~35k methods respectively.
-
-\* `val.txt`: 1,000 methods for validation.
-
-\* `test.txt`: 1,000 methods (self-created test set).
-
-\* `given\_test.txt`: 1,000 methods (provided test set).
-
-
-
-\### Evaluation \& Metadata
-
-
-
-\* `results-self-test.json`: Predictions and probabilities for the self-created test set.
-
-\* `results-given-test.json`: Predictions and probabilities for the instructor-provided test set.
-
-\* `metadata.json`: Logs specific repositories and files.
-
-
+* `results-self-test.json`: Predictions and probabilities for the self-created test set.
+* `results-given-test.json`: Predictions and probabilities for the instructor-provided test set.
+* `metadata.json`: Logs specific repository and file information.
 
 ---
 
+## Model Hyperparameters
 
-
-\## Model Hyper-parameters
-
-
-
-\* \*\*Context Windows (n): {3, 5, 7}\*\* 
-
-\* \*\*Smoothing:\*\* Add-alpha smoothing to handle unseen n-grams and prevent zero-probability errors.
-
-\* \*\*Alpha (): 0.1\*\* 
-
-\* \*\*Backoff Strategy:\*\* The model goes to the most frequent unigram from the training distribution if unseen context is encountered.
-
-
+* **Context Windows ():** {3, 5, 7}
+* **Smoothing:** Add- smoothing to handle unseen n-grams and prevent zero-probability errors.
+* **Alpha ():** 0.1
+* **Backoff Strategy:** The model falls back to the most frequent unigram from the training distribution if an unseen context is encountered.
 
 ---
 
-
-
+Would you like me to help you draft a short introductory paragraph or an "Example Usage" section to show exactly how the model outputs its token predictions?
