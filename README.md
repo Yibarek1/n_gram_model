@@ -64,9 +64,9 @@ Cloned GitHub repos are stored in `dataset/java_repos/`.
 
 ## Model Hyperparameters
 
-* **Context Windows ():** {3, 5, 7}
+* **Context Windows (n):** {3, 5, 7}
 * **Smoothing:** Add- smoothing to handle unseen n-grams and prevent zero-probability errors.
-* **Alpha ():** 0.1
+* **Alpha:** Chose an alpha value of 0.1
 * **Backoff Strategy:** The model falls back to the most frequent unigram from the training distribution if an unseen context is encountered.
 
 ---
