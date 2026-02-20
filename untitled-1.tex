@@ -1,0 +1,77 @@
+\documentclass[sigconf]{acmart}
+
+% Removing ACM copyright blocks for a class report
+\settopmatter{printacmref=false}
+\setcopyright{none}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\pagestyle{plain}
+
+\begin{document}
+
+\title{Evaluating Stable Diffusion XL 1.0 on Cognitive Tasks: Counting, Attribute Binding, and Spatial Relations}
+
+\author{Yibarek Tadesse}
+\email{yetadesse@wm.edu}
+\affiliation{%
+  \institution{William \& Mary}
+  \department{Department of Computer Science}
+  \city{Williamsburg}
+  \state{Virginia}
+  \country{USA}
+}
+
+\begin{abstract}
+This report analyzes the capabilities of Stable Diffusion XL 1.0 in handling complex cognitive tasks. Specifically, it evaluates the model's proficiency in object counting, accurate attribute binding, and rendering precise spatial relations based on advanced prompt engineering techniques. 
+\end{abstract}
+
+% CCS Concepts [cite: 18]
+\begin{CCSXML}
+<ccs2012>
+   <concept>
+       <concept_id>10010147.10010178</concept_id>
+       <concept_desc>Computing methodologies~Artificial intelligence</concept_desc>
+       <concept_significance>500</concept_significance>
+       </concept>
+ </ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Computing methodologies~Artificial intelligence}
+
+% Keywords [cite: 20]
+\keywords{Generative AI, Stable Diffusion, Prompt Engineering, Cognitive Tasks}
+
+\maketitle
+
+\section{Introduction}
+% [cite: 26]
+With the exponential growth of generative AI capabilities, models like Stable Diffusion XL 1.0 have revolutionized image synthesis. However, assessing their ability to adhere to strict cognitive constraints remains a critical area of study. This section introduces the core problem, the scope of the evaluation, and the specific cognitive tasks targeted in this report.
+
+\section{Background and Related Work}
+% Mirrors "The Rise of Software Engineering" / "History of AI" sections [cite: 51, 103]
+This section should cover the evolution of diffusion models, the architecture of SDXL 1.0, and existing literature on evaluating text-to-image models for spatial and attribute accuracy.
+
+\section{Methodology}
+% Mirrors the methodology/implementation sections [cite: 149]
+Detail your experimental setup here. Discuss the specific prompts used, the categories of cognitive tasks (counting, binding, spatial), and the parameters set for the Stable Diffusion generations.
+
+\section{Results and Evaluation}
+% Mirrors the evaluation/threats sections [cite: 263]
+Present the findings from your generation tests. Use subsections to break down performance across the three cognitive tasks.
+
+\subsection{Counting Accuracy}
+Discuss how well SDXL 1.0 handled requests for specific quantities of objects.
+
+\subsection{Attribute Binding}
+Analyze instances where the model successfully or unsuccessfully tied specific colors, textures, or features to the correct subjects in complex scenes.
+
+\subsection{Spatial Relations}
+Evaluate the model's understanding of positional prompts (e.g., "left of," "underneath," "in the background").
+
+\section{Conclusion: What is Next?}
+% [cite: 331]
+Summarize the strengths and limitations of Stable Diffusion XL 1.0 based on your analysis. Provide concluding thoughts on how future iterations of diffusion models might address the current shortcomings in cognitive task processing.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references} % Assuming you have a references.bib file
+
+\end{document}
