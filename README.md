@@ -1,6 +1,6 @@
 ---
 
-# CSCI 455/555: GenAI for SD - Assignment 1
+# GenAI for Software Dev
 
 ## Recommending Code Tokens via N-gram Models
 
