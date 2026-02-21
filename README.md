@@ -1,8 +1,6 @@
 ---
 
-# GenAI for Software Dev
-
-## Recommending Code Tokens via N-gram Models
+## Predicting Code Tokens via N-gram Models
 
 This repository implements an end-to-end NLP pipeline that mines Java repositories, preprocesses method-level code, and trains probabilistic N-gram language models for code completion tasks.
 
@@ -49,7 +47,7 @@ Cloned GitHub repos are stored in `dataset/java_repos/`.
 
 ### Dataset Splits
 
-* `train_T1.txt` / `train_T2.txt` / `train_T3.txt`: Training sets capped at 15k, 25k, and ~35k methods, respectively.
+* `train_T1.txt` / `train_T2.txt` / `train_T3.txt`: Training sets capped at 15k, 25k, and 35k methods, respectively.
 * `val.txt`: 1,000 methods for validation.
 * `test.txt`: 1,000 methods (self-created test set).
 * `given_test.txt`: 1,000 methods (instructor-provided test set).
@@ -70,5 +68,3 @@ Cloned GitHub repos are stored in `dataset/java_repos/`.
 * **Backoff Strategy:** The model falls back to the most frequent unigram from the training distribution if an unseen context is encountered.
 
 ---
-
-Would you like me to help you draft a short introductory paragraph or an "Example Usage" section to show exactly how the model outputs its token predictions?
